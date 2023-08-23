@@ -1,5 +1,10 @@
 # The Infrastructure as Code Action also supports integrating with GitHub Code Scanning and can show issues in the
 # GitHub Security tab. When run, a snyk.sarif file will be generated which can be uploaded to GitHub Code Scanning.
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 name: Snyk Infrastructure as Code
 on: push
 jobs:
