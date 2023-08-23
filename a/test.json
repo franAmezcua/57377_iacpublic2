@@ -1,0 +1,1321 @@
+[
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "tf-plan.json",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/tf-plan.json",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": false,
+    "infrastructureAsCodeIssues": [
+      {
+        "id": "SNYK-CC-TF-124",
+        "title": "S3 bucket versioning disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-124",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket versioning is disabled",
+        "impact": "Changes or deletion of objects will not be reversible",
+        "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.VersioningConfiguration.Status` attribute to `Enabled`",
+          "terraform": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "S3 bucket versioning is disabled",
+          "impact": "Changes or deletion of objects will not be reversible",
+          "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "publicId": "SNYK-CC-TF-124",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket].versioning.enabled",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "versioning",
+          "enabled"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-45",
+        "title": "S3 server access logging is disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-45",
+        "isGeneratedByCustomRule": false,
+        "issue": "The s3 access logs will not be collected",
+        "impact": "There will be no audit trail of access to s3 objects",
+        "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.LoggingConfiguration` attribute",
+          "terraform": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "The s3 access logs will not be collected",
+          "impact": "There will be no audit trail of access to s3 objects",
+          "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "publicId": "SNYK-CC-TF-45",
+        "msg": "input.resource.aws_s3_bucket[my-new-undeployed-bucket].logging",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html"
+        ],
+        "path": [
+          "input",
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "logging"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-95",
+        "title": "S3 block public ACLs control is disabled",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-95",
+        "isGeneratedByCustomRule": false,
+        "issue": "Bucket does not prevent creation of public ACLs",
+        "impact": "Anyone who can manage bucket's ACLs will be able to grant public access to the bucket",
+        "resolve": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true.",
+        "remediation": {
+          "cloudformation": "Set `Properties.PublicAccessBlockConfiguration.BlockPublicAcls` attribute to `true`",
+          "terraform": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true."
+        },
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "Bucket does not prevent creation of public ACLs",
+          "impact": "Anyone who can manage bucket's ACLs will be able to grant public access to the bucket",
+          "resolve": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true."
+        },
+        "publicId": "SNYK-CC-TF-95",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket]",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access.html",
+          "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-127",
+        "title": "S3 bucket MFA delete control disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-127",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket will not enforce MFA login on delete requests",
+        "impact": "Object could be deleted without stronger MFA authorization",
+        "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file",
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "S3 bucket will not enforce MFA login on delete requests",
+          "impact": "Object could be deleted without stronger MFA authorization",
+          "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file"
+        },
+        "publicId": "SNYK-CC-TF-127",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket].versioning.mfa_delete",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "versioning",
+          "mfa_delete"
+        ],
+        "compliance": []
+      }
+    ]
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "main.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/main.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": false,
+    "infrastructureAsCodeIssues": [
+      {
+        "id": "SNYK-CC-TF-74",
+        "title": "Credentials are configured via provider attributes",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "Provider",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-74",
+        "isGeneratedByCustomRule": false,
+        "issue": "Credentials are configured via provider attributes",
+        "impact": "Use of provider attributes can lead to accidental disclosure of credentials in configuration files, variable definition files, event logs or console logs",
+        "resolve": "Set access credentials via environment variables, and remove `access_key` and `secret_key` attributes from the configuration",
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "Credentials are configured via provider attributes",
+          "impact": "Use of provider attributes can lead to accidental disclosure of credentials in configuration files, variable definition files, event logs or console logs",
+          "resolve": "Set access credentials via environment variables, and remove `access_key` and `secret_key` attributes from the configuration"
+        },
+        "publicId": "SNYK-CC-TF-74",
+        "msg": "provider[aws]",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html",
+          "https://registry.terraform.io/providers/hashicorp/aws/latest/docs"
+        ],
+        "path": [
+          "provider[aws]"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-8",
+        "title": "IAM password should contain lowercase",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-8",
+        "isGeneratedByCustomRule": false,
+        "issue": "Your password does not contain lowercase characters",
+        "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+        "resolve": "Set the `require_lowercase_characters` attribute to be `true` to increase the strength of your password",
+        "remediation": {
+          "terraform": "Set the `require_lowercase_characters` attribute to be `true` to increase the strength of your password"
+        },
+        "lineNumber": 27,
+        "iacDescription": {
+          "issue": "Your password does not contain lowercase characters",
+          "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+          "resolve": "Set the `require_lowercase_characters` attribute to be `true` to increase the strength of your password"
+        },
+        "publicId": "SNYK-CC-TF-8",
+        "msg": "input.resource.aws_iam_account_password_policy[strict].require_lowercase_characters",
+        "references": [],
+        "path": [
+          "input",
+          "resource",
+          "aws_iam_account_password_policy[strict]",
+          "require_lowercase_characters"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-7",
+        "title": "IAM password should contain uppercase",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-7",
+        "isGeneratedByCustomRule": false,
+        "issue": "Your password does not contain uppercase characters",
+        "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+        "resolve": "Set the `require_uppercase_characters` attribute to be `true` to increase the strength of your password",
+        "remediation": {
+          "terraform": "Set the `require_uppercase_characters` attribute to be `true` to increase the strength of your password"
+        },
+        "lineNumber": 27,
+        "iacDescription": {
+          "issue": "Your password does not contain uppercase characters",
+          "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+          "resolve": "Set the `require_uppercase_characters` attribute to be `true` to increase the strength of your password"
+        },
+        "publicId": "SNYK-CC-TF-7",
+        "msg": "input.resource.aws_iam_account_password_policy[strict].require_uppercase_characters",
+        "references": [],
+        "path": [
+          "input",
+          "resource",
+          "aws_iam_account_password_policy[strict]",
+          "require_uppercase_characters"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-9",
+        "title": "IAM password should contain symbols",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-9",
+        "isGeneratedByCustomRule": false,
+        "issue": "Your password does not contain symbols",
+        "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+        "resolve": "Set the `require_symbols` attribute to be `true` to increase the strength of your password",
+        "remediation": {
+          "terraform": "Set the `require_symbols` attribute to be `true` to increase the strength of your password"
+        },
+        "lineNumber": 27,
+        "iacDescription": {
+          "issue": "Your password does not contain symbols",
+          "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+          "resolve": "Set the `require_symbols` attribute to be `true` to increase the strength of your password"
+        },
+        "publicId": "SNYK-CC-TF-9",
+        "msg": "input.resource.aws_iam_account_password_policy[strict].require_symbols",
+        "references": [],
+        "path": [
+          "input",
+          "resource",
+          "aws_iam_account_password_policy[strict]",
+          "require_symbols"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-11",
+        "title": "IAM requires minimum password length",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-11",
+        "isGeneratedByCustomRule": false,
+        "issue": "Your password does not enforce a minimum length",
+        "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+        "resolve": "Set the `minimum_password_length` attribute to be at least `14` to increase the strength of your password",
+        "remediation": {
+          "terraform": "Set the `minimum_password_length` attribute to be at least `14` to increase the strength of your password"
+        },
+        "lineNumber": 28,
+        "iacDescription": {
+          "issue": "Your password does not enforce a minimum length",
+          "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+          "resolve": "Set the `minimum_password_length` attribute to be at least `14` to increase the strength of your password"
+        },
+        "publicId": "SNYK-CC-TF-11",
+        "msg": "input.resource.aws_iam_account_password_policy[strict].minimum_password_length",
+        "references": [],
+        "path": [
+          "input",
+          "resource",
+          "aws_iam_account_password_policy[strict]",
+          "minimum_password_length"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-10",
+        "title": "IAM password should contain numbers",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-10",
+        "isGeneratedByCustomRule": false,
+        "issue": "Your password does not contain numbers",
+        "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+        "resolve": "Set the `require_numbers` attribute to be `true` to increase the strength of your password",
+        "remediation": {
+          "terraform": "Set the `require_numbers` attribute to be `true` to increase the strength of your password"
+        },
+        "lineNumber": 27,
+        "iacDescription": {
+          "issue": "Your password does not contain numbers",
+          "impact": "Your password is not following the recommended security practices and is not as strong as it should be",
+          "resolve": "Set the `require_numbers` attribute to be `true` to increase the strength of your password"
+        },
+        "publicId": "SNYK-CC-TF-10",
+        "msg": "input.resource.aws_iam_account_password_policy[strict].require_numbers",
+        "references": [],
+        "path": [
+          "input",
+          "resource",
+          "aws_iam_account_password_policy[strict]",
+          "require_numbers"
+        ],
+        "compliance": []
+      }
+    ]
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "variables.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/variables.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/iam/main.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/iam/main.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": false,
+    "infrastructureAsCodeIssues": [
+      {
+        "id": "SNYK-CC-TF-69",
+        "title": "Wildcard action in IAM Policy",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-69",
+        "isGeneratedByCustomRule": false,
+        "issue": "The IAM policy allows all actions on resource",
+        "impact": "Granting permission to perform any action is against 'least privilege' principle",
+        "resolve": "Set `statement.action` attribute to specific actions e.g. `s3:ListBucket`",
+        "remediation": {
+          "cloudformation": "Set `Action` attribute in `Properties.PolicyDocument` to specific actions e.g. `s3:ListBucket`",
+          "terraform": "Set `statement.action` attribute to specific actions e.g. `s3:ListBucket`"
+        },
+        "lineNumber": -1,
+        "iacDescription": {
+          "issue": "The IAM policy allows all actions on resource",
+          "impact": "Granting permission to perform any action is against 'least privilege' principle",
+          "resolve": "Set `statement.action` attribute to specific actions e.g. `s3:ListBucket`"
+        },
+        "publicId": "SNYK-CC-TF-69",
+        "msg": "aws_iam_policy_document[admin-assume-role-policy].statement",
+        "description": "",
+        "references": [
+          "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html",
+          "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html"
+        ],
+        "path": [
+          "aws_iam_policy_document[admin-assume-role-policy]",
+          "statement"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-119",
+        "title": "IAM Policy grants full administrative rights",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "IAM",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-119",
+        "isGeneratedByCustomRule": false,
+        "issue": "The IAM Policy grants all permissions to all resources",
+        "impact": "Any identity with this policy will have full administrative rights in the account",
+        "resolve": "Set `Actions` and `Resources` attributes to limited subset, e.g `Actions: ['s3:Create*']`",
+        "remediation": {
+          "cloudformation": "Set `Actions` and `Resources` attributes to limited subset, e.g `Actions: ['s3:Create*']`",
+          "terraform": "Set `Actions` and `Resources` attributes to limited subset, e.g `Actions: ['s3:Create*']`"
+        },
+        "lineNumber": 1,
+        "iacDescription": {
+          "issue": "The IAM Policy grants all permissions to all resources",
+          "impact": "Any identity with this policy will have full administrative rights in the account",
+          "resolve": "Set `Actions` and `Resources` attributes to limited subset, e.g `Actions: ['s3:Create*']`"
+        },
+        "publicId": "SNYK-CC-TF-119",
+        "msg": "data.aws_iam_policy_document[admin-assume-role-policy]",
+        "references": [
+          "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html"
+        ],
+        "path": [
+          "data",
+          "aws_iam_policy_document[admin-assume-role-policy]"
+        ],
+        "compliance": []
+      }
+    ]
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/iam/variables.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/iam/variables.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/storage/main.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/storage/main.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": false,
+    "infrastructureAsCodeIssues": [
+      {
+        "id": "SNYK-CC-TF-124",
+        "title": "S3 bucket versioning disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-124",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket versioning is disabled",
+        "impact": "Changes or deletion of objects will not be reversible",
+        "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.VersioningConfiguration.Status` attribute to `Enabled`",
+          "terraform": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "lineNumber": 110,
+        "iacDescription": {
+          "issue": "S3 bucket versioning is disabled",
+          "impact": "Changes or deletion of objects will not be reversible",
+          "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "publicId": "SNYK-CC-TF-124",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket].versioning.enabled",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "versioning",
+          "enabled"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-95",
+        "title": "S3 block public ACLs control is disabled",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-95",
+        "isGeneratedByCustomRule": false,
+        "issue": "Bucket does not prevent creation of public ACLs",
+        "impact": "Anyone who can manage bucket's ACLs will be able to grant public access to the bucket",
+        "resolve": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true.",
+        "remediation": {
+          "cloudformation": "Set `Properties.PublicAccessBlockConfiguration.BlockPublicAcls` attribute to `true`",
+          "terraform": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true."
+        },
+        "lineNumber": 110,
+        "iacDescription": {
+          "issue": "Bucket does not prevent creation of public ACLs",
+          "impact": "Anyone who can manage bucket's ACLs will be able to grant public access to the bucket",
+          "resolve": "Set the `aws_s3_bucket_public_access_block` `block_public_acls` field to true."
+        },
+        "publicId": "SNYK-CC-TF-95",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket]",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access.html",
+          "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-127",
+        "title": "S3 bucket MFA delete control disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-127",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket will not enforce MFA login on delete requests",
+        "impact": "Object could be deleted without stronger MFA authorization",
+        "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file",
+        "lineNumber": 110,
+        "iacDescription": {
+          "issue": "S3 bucket will not enforce MFA login on delete requests",
+          "impact": "Object could be deleted without stronger MFA authorization",
+          "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file"
+        },
+        "publicId": "SNYK-CC-TF-127",
+        "msg": "resource.aws_s3_bucket[my-new-undeployed-bucket].versioning.mfa_delete",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "versioning",
+          "mfa_delete"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-98",
+        "title": "S3 restrict public bucket control is disabled",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-98",
+        "isGeneratedByCustomRule": false,
+        "issue": "Bucket will recognize public policies and allow public access",
+        "impact": "If public policy is attached to the bucket, anyone will be able to read and/or write to the bucket.",
+        "resolve": "Set `aws_s3_bucket_public_access_block` `restrict_public_buckets` attribute to `true`",
+        "remediation": {
+          "cloudformation": "Set `Properties.PublicAccessBlockConfiguration.RestrictPublicBuckets` attribute to `true`",
+          "terraform": "Set `aws_s3_bucket_public_access_block` `restrict_public_buckets` attribute to `true`"
+        },
+        "lineNumber": 114,
+        "iacDescription": {
+          "issue": "Bucket will recognize public policies and allow public access",
+          "impact": "If public policy is attached to the bucket, anyone will be able to read and/or write to the bucket.",
+          "resolve": "Set `aws_s3_bucket_public_access_block` `restrict_public_buckets` attribute to `true`"
+        },
+        "publicId": "SNYK-CC-TF-98",
+        "msg": "resource.aws_s3_bucket_public_access_block[snyk_public].restrict_public_buckets",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access.html",
+          "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket_public_access_block[snyk_public]",
+          "restrict_public_buckets"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-127",
+        "title": "S3 bucket MFA delete control disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-127",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket will not enforce MFA login on delete requests",
+        "impact": "Object could be deleted without stronger MFA authorization",
+        "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file",
+        "lineNumber": 103,
+        "iacDescription": {
+          "issue": "S3 bucket will not enforce MFA login on delete requests",
+          "impact": "Object could be deleted without stronger MFA authorization",
+          "resolve": "Follow instructions in `https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html` to manually configure the MFA setting. For AWS provider < v4.0.0 set `versioning.mfa_delete` attribute to `true` in aws_s3_bucket resource. For AWS provider >= v4.0.0 set 'versioning_configuration.mfa_delete` attribute to `Enabled`. The terraform change is required to reflect the setting in the state file"
+        },
+        "publicId": "SNYK-CC-TF-127",
+        "msg": "resource.aws_s3_bucket[snyk_storage].versioning.mfa_delete",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[snyk_storage]",
+          "versioning",
+          "mfa_delete"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-124",
+        "title": "S3 bucket versioning disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-124",
+        "isGeneratedByCustomRule": false,
+        "issue": "S3 bucket versioning is disabled",
+        "impact": "Changes or deletion of objects will not be reversible",
+        "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.VersioningConfiguration.Status` attribute to `Enabled`",
+          "terraform": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "lineNumber": 103,
+        "iacDescription": {
+          "issue": "S3 bucket versioning is disabled",
+          "impact": "Changes or deletion of objects will not be reversible",
+          "resolve": "For AWS provider < v4.0.0, set `versioning.enabled` attribute to `true`. For AWS provider >= v4.0.0, add aws_s3_bucket_versioning resource."
+        },
+        "publicId": "SNYK-CC-TF-124",
+        "msg": "resource.aws_s3_bucket[snyk_storage].versioning.enabled",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket[snyk_storage]",
+          "versioning",
+          "enabled"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-45",
+        "title": "S3 server access logging is disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-45",
+        "isGeneratedByCustomRule": false,
+        "issue": "The s3 access logs will not be collected",
+        "impact": "There will be no audit trail of access to s3 objects",
+        "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.LoggingConfiguration` attribute",
+          "terraform": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "lineNumber": 103,
+        "iacDescription": {
+          "issue": "The s3 access logs will not be collected",
+          "impact": "There will be no audit trail of access to s3 objects",
+          "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "publicId": "SNYK-CC-TF-45",
+        "msg": "input.resource.aws_s3_bucket[snyk_storage].logging",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html"
+        ],
+        "path": [
+          "input",
+          "resource",
+          "aws_s3_bucket[snyk_storage]",
+          "logging"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-56",
+        "title": "Security group description is missing",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "VPC",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-56",
+        "isGeneratedByCustomRule": false,
+        "issue": "The description field is missing in the security group",
+        "impact": "Increases the security management overhead",
+        "resolve": "Set `description` attribute to meaningful statement",
+        "lineNumber": 10,
+        "iacDescription": {
+          "issue": "The description field is missing in the security group",
+          "impact": "Increases the security management overhead",
+          "resolve": "Set `description` attribute to meaningful statement"
+        },
+        "publicId": "SNYK-CC-TF-56",
+        "msg": "resource.aws_security_group[snyk_rds_sg].description",
+        "references": [
+          "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html"
+        ],
+        "path": [
+          "resource",
+          "aws_security_group[snyk_rds_sg]",
+          "description"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-AWS-414",
+        "title": "RDS IAM authentication is disabled",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "RDS",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-AWS-414",
+        "isGeneratedByCustomRule": false,
+        "issue": "IAM database authentication is disabled, authentication tokens are not used to connect to DB instance",
+        "impact": "Users will connect to DB instance with password, which are less secure than temporary tokens which expire",
+        "resolve": "Set `iam_database_authentication_enabled` to `true`.",
+        "remediation": {
+          "cloudformation": "Set `Properties.EnableIAMDatabaseAuthentication` to `true`.",
+          "terraform": "Set `iam_database_authentication_enabled` to `true`."
+        },
+        "lineNumber": 45,
+        "iacDescription": {
+          "issue": "IAM database authentication is disabled, authentication tokens are not used to connect to DB instance",
+          "impact": "Users will connect to DB instance with password, which are less secure than temporary tokens which expire",
+          "resolve": "Set `iam_database_authentication_enabled` to `true`."
+        },
+        "publicId": "SNYK-CC-AWS-414",
+        "msg": "resource.aws_db_instance[snyk_db].iam_database_authentication_enabled",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html"
+        ],
+        "path": [
+          "resource",
+          "aws_db_instance[snyk_db]",
+          "iam_database_authentication_enabled"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-96",
+        "title": "S3 block public policy control is disabled",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-96",
+        "isGeneratedByCustomRule": false,
+        "issue": "Bucket does not prevent creation of public policies",
+        "impact": "Anyone who can manage bucket's policies will be able to grant public access to the bucket.",
+        "resolve": "Set `aws_s3_bucket_public_access_block` `block_public_policy` attribute to `true`",
+        "remediation": {
+          "cloudformation": "Set `Properties.PublicAccessBlockConfiguration.BlockPublicPolicy` attribute to `true`",
+          "terraform": "Set `aws_s3_bucket_public_access_block` `block_public_policy` attribute to `true`"
+        },
+        "lineNumber": 119,
+        "iacDescription": {
+          "issue": "Bucket does not prevent creation of public policies",
+          "impact": "Anyone who can manage bucket's policies will be able to grant public access to the bucket.",
+          "resolve": "Set `aws_s3_bucket_public_access_block` `block_public_policy` attribute to `true`"
+        },
+        "publicId": "SNYK-CC-TF-96",
+        "msg": "resource.aws_s3_bucket_public_access_block[snyk_public].block_public_policy",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access.html",
+          "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket_public_access_block[snyk_public]",
+          "block_public_policy"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-AWS-408",
+        "title": "RDS automatic backup is disabled",
+        "severity": "medium",
+        "isIgnored": false,
+        "type": "terraform",
+        "subType": "RDS",
+        "policyEngineType": "opa",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-AWS-408",
+        "isGeneratedByCustomRule": false,
+        "issue": "Automatic backup of AWS Relational Database is disabled",
+        "impact": "No automatic backups will occur, availability risk if disaster occurs and manual backups have not been set",
+        "resolve": "Set `resource.backup_retention_period` to `1` or more",
+        "remediation": {
+          "cloudformation": "Set `Properties.BackupRetentionPeriod` to `1` or more",
+          "terraform": "Set `resource.backup_retention_period` to `1` or more"
+        },
+        "lineNumber": 45,
+        "iacDescription": {
+          "issue": "Automatic backup of AWS Relational Database is disabled",
+          "impact": "No automatic backups will occur, availability risk if disaster occurs and manual backups have not been set",
+          "resolve": "Set `resource.backup_retention_period` to `1` or more"
+        },
+        "publicId": "SNYK-CC-AWS-408",
+        "msg": "resource.aws_db_instance[snyk_db].backup_retention_period",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html"
+        ],
+        "path": [
+          "resource",
+          "aws_db_instance[snyk_db]",
+          "backup_retention_period"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-1",
+        "title": "Security Group allows open ingress",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "VPC",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-1",
+        "isGeneratedByCustomRule": false,
+        "issue": "That inbound traffic is allowed to a resource from any source instead of a restricted range",
+        "impact": "That potentially everyone can access your resource",
+        "resolve": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`",
+        "remediation": {
+          "cloudformation": "Set `Properties.SecurityGroupIngress.CidrIp` attribute with a more restrictive IP, for example `192.16.0.0/24`",
+          "terraform": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`"
+        },
+        "lineNumber": 19,
+        "iacDescription": {
+          "issue": "That inbound traffic is allowed to a resource from any source instead of a restricted range",
+          "impact": "That potentially everyone can access your resource",
+          "resolve": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`"
+        },
+        "publicId": "SNYK-CC-TF-1",
+        "msg": "input.resource.aws_security_group[snyk_rds_sg].ingress",
+        "references": [
+          "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"
+        ],
+        "path": [
+          "input",
+          "resource",
+          "aws_security_group[snyk_rds_sg]",
+          "ingress"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-45",
+        "title": "S3 server access logging is disabled",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-45",
+        "isGeneratedByCustomRule": false,
+        "issue": "The s3 access logs will not be collected",
+        "impact": "There will be no audit trail of access to s3 objects",
+        "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource.",
+        "remediation": {
+          "cloudformation": "Set `Properties.LoggingConfiguration` attribute",
+          "terraform": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "lineNumber": 110,
+        "iacDescription": {
+          "issue": "The s3 access logs will not be collected",
+          "impact": "There will be no audit trail of access to s3 objects",
+          "resolve": "For AWS provider < v4.0.0, add `logging` block attribute. For AWS provider >= v4.0.0, add aws_s3_bucket_logging resource."
+        },
+        "publicId": "SNYK-CC-TF-45",
+        "msg": "input.resource.aws_s3_bucket[my-new-undeployed-bucket].logging",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html"
+        ],
+        "path": [
+          "input",
+          "resource",
+          "aws_s3_bucket[my-new-undeployed-bucket]",
+          "logging"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-73",
+        "title": "AWS Security Group allows open egress",
+        "severity": "low",
+        "isIgnored": false,
+        "subType": "VPC",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-73",
+        "isGeneratedByCustomRule": false,
+        "issue": "The inline security group rule allows open egress",
+        "impact": "Open egress can be used to exfiltrate data to unauthorized destinations, and enable access to potentially malicious resources",
+        "remediation": {
+          "cloudformation": "Set `Properties.SecurityGroupEgress.CidrIp` attribute to specific ranges e.g. `192.168.1.0/24`",
+          "terraform": "Set `egress.cidr_blocks` attribute to specific ranges e.g. `192.168.1.0/24`"
+        },
+        "lineNumber": 27,
+        "iacDescription": {
+          "issue": "The inline security group rule allows open egress",
+          "impact": "Open egress can be used to exfiltrate data to unauthorized destinations, and enable access to potentially malicious resources"
+        },
+        "publicId": "SNYK-CC-TF-73",
+        "msg": "resource.aws_security_group[snyk_rds_sg].egress",
+        "references": [
+          "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html",
+          "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html"
+        ],
+        "path": [
+          "resource",
+          "aws_security_group[snyk_rds_sg]",
+          "egress"
+        ],
+        "compliance": []
+      },
+      {
+        "id": "SNYK-CC-TF-97",
+        "title": "S3 ignore public ACLs control is disabled",
+        "severity": "high",
+        "isIgnored": false,
+        "subType": "S3",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-97",
+        "isGeneratedByCustomRule": false,
+        "issue": "Bucket will recognize public ACLs and allow public access",
+        "impact": "If public ACL is attached to the bucket, anyone will be able to read and/or write to the bucket.",
+        "resolve": "Set `aws_s3_bucket_public_access_block` `ignore_public_acls` attribute to `true`",
+        "remediation": {
+          "cloudformation": "Set `Properties.PublicAccessBlockConfiguration.IgnorePublicAcls` attribute to `true`",
+          "terraform": "Set `aws_s3_bucket_public_access_block` `ignore_public_acls` attribute to `true`"
+        },
+        "lineNumber": 117,
+        "iacDescription": {
+          "issue": "Bucket will recognize public ACLs and allow public access",
+          "impact": "If public ACL is attached to the bucket, anyone will be able to read and/or write to the bucket.",
+          "resolve": "Set `aws_s3_bucket_public_access_block` `ignore_public_acls` attribute to `true`"
+        },
+        "publicId": "SNYK-CC-TF-97",
+        "msg": "resource.aws_s3_bucket_public_access_block[snyk_public].ignore_public_acls",
+        "references": [
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html",
+          "https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access.html",
+          "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html"
+        ],
+        "path": [
+          "resource",
+          "aws_s3_bucket_public_access_block[snyk_public]",
+          "ignore_public_acls"
+        ],
+        "compliance": []
+      }
+    ]
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/storage/variables.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/storage/variables.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/subnet/main.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/subnet/main.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/subnet/outputs.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/subnet/outputs.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/subnet/variables.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/subnet/variables.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/vpc/main.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/vpc/main.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": false,
+    "infrastructureAsCodeIssues": [
+      {
+        "id": "SNYK-CC-TF-1",
+        "title": "Security Group allows open ingress",
+        "severity": "medium",
+        "isIgnored": false,
+        "subType": "VPC",
+        "documentation": "https://snyk.io/security-rules/SNYK-CC-TF-1",
+        "isGeneratedByCustomRule": false,
+        "issue": "That inbound traffic is allowed to a resource from any source instead of a restricted range",
+        "impact": "That potentially everyone can access your resource",
+        "resolve": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`",
+        "remediation": {
+          "cloudformation": "Set `Properties.SecurityGroupIngress.CidrIp` attribute with a more restrictive IP, for example `192.16.0.0/24`",
+          "terraform": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`"
+        },
+        "lineNumber": 21,
+        "iacDescription": {
+          "issue": "That inbound traffic is allowed to a resource from any source instead of a restricted range",
+          "impact": "That potentially everyone can access your resource",
+          "resolve": "Set `cidr_block` attribute with a more restrictive IP, for example `192.16.0.0/24`"
+        },
+        "publicId": "SNYK-CC-TF-1",
+        "msg": "input.resource.aws_security_group[allow_ssh].ingress",
+        "references": [
+          "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"
+        ],
+        "path": [
+          "input",
+          "resource",
+          "aws_security_group[allow_ssh]",
+          "ingress"
+        ],
+        "compliance": []
+      }
+    ]
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/vpc/outputs.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/vpc/outputs.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  },
+  {
+    "meta": {
+      "isPrivate": true,
+      "isLicensesEnabled": false,
+      "ignoreSettings": {
+        "adminOnly": true,
+        "reasonRequired": false,
+        "disregardFilesystemIgnores": false
+      },
+      "org": "francisco.amezcua",
+      "orgPublicId": "9cb0be2b-59b3-4d86-a750-67a5d0f4a0b1",
+      "policy": ""
+    },
+    "filesystemPolicy": false,
+    "vulnerabilities": [],
+    "dependencyCount": 0,
+    "licensesPolicy": null,
+    "ignoreSettings": null,
+    "targetFile": "modules/vpc/variables.tf",
+    "projectName": "terraform-goof",
+    "org": "francisco.amezcua",
+    "policy": "",
+    "isPrivate": true,
+    "targetFilePath": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof/modules/vpc/variables.tf",
+    "packageManager": "terraformconfig",
+    "path": "/Users/franciscosnyk/Goof Repos/Repos/Updated Goof Repos/terraform-goof",
+    "projectType": "terraformconfig",
+    "ok": true,
+    "infrastructureAsCodeIssues": []
+  }
+]
