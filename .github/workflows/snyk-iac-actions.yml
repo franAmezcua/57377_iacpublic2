@@ -31,3 +31,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: snyk.sarif
+      - name: Display Sarif File
+        run: ls -al
