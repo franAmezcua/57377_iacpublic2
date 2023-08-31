@@ -36,5 +36,5 @@ jobs:
       #    sarif_file: snyk.sarif
       - name: Display all files in the root
         run: ls -al
-      #- name: Display Sarif File
-      #  run: cat snyk.sarif
+      - name: Display Sarif File
+        run: cat snyk.sarif
