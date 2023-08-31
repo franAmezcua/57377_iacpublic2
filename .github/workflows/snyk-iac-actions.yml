@@ -11,7 +11,7 @@ jobs:
   snyk:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run Snyk to check configuration files for security issues
         # Snyk can be used to break the build when it detects security issues.
         # In this case we want to upload the issues to GitHub Code Scanning
@@ -27,11 +27,14 @@ jobs:
           # For example `deployment.yaml` for a Kubernetes deployment manifest
           # or `main.tf` for a Terraform configuration file
           file: .
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
-      - name: Display all files in the root
-        run: ls -al
-      - name: Display Sarif File
-        run: cat snyk.sarif
+          args: --scan=resource-changes --severity-threshold=low
+          sarif: true
+     # - name: Upload result to GitHub Code Scanning
+      
+      #  uses: github/codeql-action/upload-sarif@v2
+      #  with:
+      #    sarif_file: snyk.sarif
+      #- name: Display all files in the root
+      #  run: ls -al
+      #- name: Display Sarif File
+      #  run: cat snyk.sarif
