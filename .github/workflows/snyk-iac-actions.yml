@@ -18,7 +18,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          file: .
+          #file: .
           args: --scan=resource-changes --severity-threshold=low
           #sarif: true
       #- name: Remove the sarif file
