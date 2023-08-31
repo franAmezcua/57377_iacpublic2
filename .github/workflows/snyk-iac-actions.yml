@@ -20,7 +20,7 @@ jobs:
         with:
           file: .
           args: --scan=resource-changes --severity-threshold=low
-          sarif: true
+          #sarif: true
       - name: Display all files in the root
         run: ls -al
       - name: Display Sarif File
