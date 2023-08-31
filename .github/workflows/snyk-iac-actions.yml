@@ -21,9 +21,9 @@ jobs:
           file: .
           args: --scan=resource-changes --severity-threshold=low
           #sarif: true
-      - name: Remove the sarif file
-        run: rm snyk.sarif
+      #- name: Remove the sarif file
+      #  run: rm snyk.sarif
       - name: Display all files in the root
         run: ls -al
-      - name: Display Sarif File
-        run: cat snyk.sarif
+      #- name: Display Sarif File
+       # run: cat snyk.sarif
